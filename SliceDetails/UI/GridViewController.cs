@@ -98,7 +98,7 @@ namespace SliceDetails.UI
 
 			if (SceneManager.GetActiveScene().name == "MainMenu") {
 				Destroy(_resetButtonTransform.gameObject);
-			} else { 
+			} else {
 				_resetButtonTransform.sizeDelta = new Vector2(8.0f, 4.0f);
 				_resetButtonTransform.localPosition = new Vector3(-15.0f, -17.0f, 0.0f);
 				_resetButtonTransform.GetComponentInChildren<CurvedTextMeshPro>().fontStyle = FontStyles.Normal;
@@ -176,10 +176,10 @@ namespace SliceDetails.UI
 					texts[1].gameObject.SetActive(false);
 				}
 
-				if (_sliceProcessor.tiles[i].atLeastOneNote) { 
+				if (_sliceProcessor.tiles[i].atLeastOneNote) {
 					texts[0].text = String.Format("{0:0.00}", _sliceProcessor.tiles[i].scoreAverage);
 					texts[1].text = _sliceProcessor.tiles[i].noteCount.ToString();
-				} else { 
+				} else {
 					texts[0].text = "";
 					texts[1].text = "";
 				}
@@ -201,9 +201,10 @@ namespace SliceDetails.UI
 		}
 
 		[UIAction("#presentNotesModal")]
-		public void PresentModal() {
+		public void PresentModal()
+		{
 			if (_basicUIAudioManager != null)
-				_basicUIAudioManager.HandleButtonClickEvent();
+				_basicUIAudioManager.InvokeMethod<object, BasicUIAudioManager>("HandleButtonClickEvent", null);
 		}
 
 		public void CloseModal(bool animated) {
